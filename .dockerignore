@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+
+notebooks/
+data/
+
+test_project/
+portability_test/
+
+.vscode/
+
+.git/
+.gitignore
+
+.DS_Store
