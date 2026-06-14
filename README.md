@@ -92,6 +92,18 @@ Where:
 * prediction = 1 indicates fraud
 * prediction = 0 indicates non-fraud
 
+## System Architecture
+
+```mermaid
+flowchart LR
+
+A[Client Request] --> B[FastAPI]
+B --> C[Feature Engineering]
+C --> D[XGBoost Model]
+D --> E[Threshold Optimization]
+E --> F[Prediction Response]
+```
+
 ## Technologies Used
 
 * Python
@@ -102,13 +114,11 @@ Where:
 * Joblib
 * FastAPI
 * Pydantic
-
 ## Future Improvements
 
 * Model monitoring and drift detection
-* Docker containerization
-* Cloud deployment
 * Automated retraining pipeline
 * Experiment tracking using MLflow
 * Real-time streaming predictions
-* Explainable AI using SHAP
+* CI/CD integration using GitHub Actions
+* Kubernetes deployment for scalability
