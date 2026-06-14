@@ -122,3 +122,59 @@ E --> F[Prediction Response]
 * Real-time streaming predictions
 * CI/CD integration using GitHub Actions
 * Kubernetes deployment for scalability
+
+
+## Business Recommendations
+
+The dataset is highly imbalanced, with fraudulent transactions representing approximately 0.13% of all observations.
+
+This means traditional accuracy metrics are not sufficient for evaluating model performance, and greater emphasis should be placed on precision, recall, and F1-score.
+
+### Important Fraud Indicators
+
+Feature importance analysis showed that the following variables contributed significantly to fraud detection:
+
+* newbalanceOrig
+* amount_to_balance_ratio
+* balancediff_Org_including_amount
+
+These features capture abnormal balance movements and unusual transaction behavior that are commonly associated with fraudulent activity.
+
+### Recommended Production Model
+
+The selected production model is XGBoost.
+
+Performance at the selected threshold of 0.7:
+
+| Metric    | Value |
+| --------- | ----- |
+| Precision | 95%   |
+| Recall    | 94%   |
+| F1 Score  | 94%   |
+
+### Business Impact
+
+* The model correctly identifies approximately 94% of fraudulent transactions.
+* A precision of 95% indicates that most transactions flagged as fraud are truly fraudulent, reducing unnecessary investigations.
+* The selected threshold balances fraud detection capability with operational efficiency.
+
+### Recommendation
+
+Deploy the XGBoost model as an initial fraud screening layer and route flagged transactions for additional verification before approval.
+
+### Model Limitations
+
+* As fraud patterns evolve, model performance may degrade over time if retraining is not performed regularly.
+* Customer transaction behavior may change due to :
+- New payment methods
+- Economic conditions
+- Seasonal effects
+- Products changes
+
+* The PaySlim dataset is a simulated representation of financial transactions.
+Although it captures many realistic fraud patterns, real world transaction data may contain additional complexities not represented in the dataset.
+* Despite strong models performance, some fradulent transactions may still remain undetected due to class imbalance.
+* Model depends on the chosen classification model. 
+Different business objectives may require adjusting the threshold to prioritize either fraud detection(higher recall) or fewer false alarms (higher precision).
+
+
