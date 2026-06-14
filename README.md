@@ -1,5 +1,15 @@
 # Fraud Detection System using Machine Learning and FastAPI
 
+## Live Deployment
+
+API URL
+
+https://fraud-detection-api-t7f4.onrender.com
+
+Interactive API Documentation
+
+https://fraud-detection-api-t7f4.onrender.com/docs
+
 ## Business Problem
 
 Financial fraud causes significant monetary losses for digital payment platforms. The objective of this project is to build a machine learning system capable of identifying potentially fraudulent transactions in real time while minimizing false positives.
